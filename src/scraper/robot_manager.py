@@ -3,7 +3,7 @@ import re
 import asyncio
 import random
 from urllib.parse import unquote
-from services.scraper.config import DELAY_RANGE
+from utils.config import DELAY_RANGE
 
 class RobotsManager:
     def __init__(self, base_url):
@@ -58,6 +58,7 @@ class RobotsManager:
 
         for rule in self.rules:
             if rule.search(url):
+                print(f"NOT ALLOWED TO VISIT {url}")
                 return False
         return True
 

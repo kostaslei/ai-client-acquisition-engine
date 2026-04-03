@@ -1,16 +1,14 @@
 from collections import deque
 from urllib.parse import urlparse
-
-from services.scraper.fetcher import fetch_page
-from services.scraper.utils import score_url, get_pattern, normalize_url
-from services.scraper.config import MAX_PAGES, MAX_PER_PATTERN, MAX_DEPTH, DELAY_RANGE
-from services.scraper.browser_manager import BrowserManager
-from services.scraper.link_extractor import extract_links, is_valid_url
-from services.scraper.extractor import extract_structured_chunks, clean_soup, extract_title
-from services.scraper.robot_manager import RobotsManager
 from collections import defaultdict
 import heapq
 
+from fetching.fetcher import fetch_page
+from utils.helper import score_url, get_pattern, normalize_url, is_valid_url
+from utils.config import MAX_PAGES, MAX_PER_PATTERN, MAX_DEPTH, DELAY_RANGE
+from scraper.browser_manager import BrowserManager
+from scraper.extractor import extract_structured_chunks, clean_soup, extract_title, extract_links
+from scraper.robot_manager import RobotsManager
 
 
 class Crawler:
@@ -104,4 +102,5 @@ class Crawler:
         finally:
             await browser.close()
 
+        results = list(dict.fromkeys(results))
         return title, results

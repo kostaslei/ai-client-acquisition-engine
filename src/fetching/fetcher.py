@@ -1,5 +1,5 @@
 import requests
-from services.scraper.config import HEADERS
+from utils.config import HEADERS
 
 
 def fetch_requests(url):
@@ -17,4 +17,4 @@ async def fetch_page(url, browser_manager):
     if html:
         return html
 
-    return await browser_manager.get_page_content(url)
+    return await browser_manager.fetch(url)

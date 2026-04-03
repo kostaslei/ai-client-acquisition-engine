@@ -21,5 +21,5 @@ EXCLUDED_EXTENSIONS = (
 QUERY = """
 company description, what the company does,
 products, services, solutions, about the business,
-customer value proposition
+customer value proposition, projects, portfolio
 """

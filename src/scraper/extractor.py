@@ -1,5 +1,5 @@
 from bs4 import BeautifulSoup
-
+from urllib.parse import urljoin, urlparse
 
 def extract_title(soup):
     # 1. <title> tag
@@ -50,3 +50,23 @@ def extract_structured_chunks(soup):
             chunks.append("\n".join(block))
 
     return chunks
+
+def extract_links(html, base_url):
+    soup = BeautifulSoup(html, "html.parser")
+    links = set()
+
+    base_domain = urlparse(base_url).netloc
+
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+
+        if href.startswith("#") or "javascript:" in href:
+            continue
+
+        full_url = urljoin(base_url, href)
+
+        if urlparse(full_url).netloc == base_domain:
+            clean_url = full_url.split("#")[0].rstrip("/")
+            links.add(clean_url)
+
+    return list(links)

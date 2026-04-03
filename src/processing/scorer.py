@@ -1,5 +1,5 @@
 def cosine_similarity(a, b):
-    return float(a @ b)  # fast dot product
+    return float(a @ b)  
 
 
 def rank_chunks(chunks, chunk_embeddings, query_embedding):
