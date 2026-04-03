@@ -31,10 +31,10 @@ def clean_soup(html):
 def extract_structured_chunks(soup):
     chunks = []
 
-    containers = soup.find_all(["section", "article"])
+    containers = soup.find_all(["section", "article", "div"])
 
     if not containers:
-        containers = soup.find_all(["div"], limit=20)
+        containers = soup.find_all(["div"], limit=20) # Many websites have info in divs
 
     for section in containers:
         block = []

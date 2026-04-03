@@ -8,7 +8,7 @@ import asyncio
 
 async def main():
 
-    base_url = "https://www.edwardjones.com/"
+    base_url = ""
 
      # Fetch
     crawler = Crawler(base_url)

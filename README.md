@@ -84,13 +84,13 @@ This ensures only the most relevant information is passed to the LLM.
     "who_they_serve": "...",
     "concrete_offerings": ["..."],
     "proof_points": ["..."]
-  }},
+  },
   "friction_points": [
-    {{
+    {
       "observation": "...",
       "why_it_matters": "...",
       "anchor": "..."
-    }}
+    }
   ],
   "outreach_message": "..."
 }
@@ -136,11 +136,11 @@ This ensures only the most relevant information is passed to the LLM.
 
 ## How to Run
 
-Add your OpenAI API key on the .env file and save it.
+1. Add your OpenAI API key on the .env file and save it.
 
 ***Then:***
 
-```bash
+2. ```bash
 pip install -r requirements.txt
 python src/main.py
 ```
@@ -150,4 +150,12 @@ python src/main.py
 ## Author
 
 Konstantinos Leivaditis
+
+---
+
+## Disclaimer
+
+This project only processes publicly available website content for demonstration purposes. 
+It does not bypass authentication, paywalls, or access restricted data. 
+Scraping logic includes basic respect for robots.txt, though not fully guaranteed.
 
