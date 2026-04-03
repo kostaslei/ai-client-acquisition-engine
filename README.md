@@ -136,11 +136,11 @@ This ensures only the most relevant information is passed to the LLM.
 
 ## How to Run
 
-1. Add your OpenAI API key on the .env file and save it.
+Add your OpenAI API key on the .env file and save it.
 
 ***Then:***
 
-2. ```bash
+```bash
 pip install -r requirements.txt
 python src/main.py
 ```
